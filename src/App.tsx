@@ -5,7 +5,7 @@ import { RootType, setAuth, setLoading } from "./store"
 import Dashboard from "./pages/Dashboard"
 import { useEffect } from "react"
 import { PropagateLoader } from "react-spinners"
-import $api from "./http/api"
+import $axios from "./http/axios"
 
 const App = () => {
 
@@ -18,7 +18,7 @@ const App = () => {
       dispatch(setLoading(true));
       try {
         if (localStorage.getItem("accessToken")) {
-          const { data } = await $api.get("/auth/refresh", { withCredentials: true });
+          const { data } = await $axios.get("/auth/refresh", { withCredentials: true });
           localStorage.setItem("accessToken", data.accessToken);
           dispatch(setAuth(true));
         } else {
