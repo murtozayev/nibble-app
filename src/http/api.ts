@@ -24,7 +24,7 @@ $api.interceptors.response.use(
             originalRequest._isRetry = true;
 
             try {
-                const { data } = await $axios.get("/auth/refresh");
+                const { data } = await $api.get("/auth/refresh");
 
                 localStorage.setItem("accessToken", data.accessToken);
 

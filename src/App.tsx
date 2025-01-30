@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootType, setAuth, setLoading } from "./store"
 import Dashboard from "./pages/Dashboard"
 import { useEffect } from "react"
-import $axios from "./http/axios"
 import { PropagateLoader } from "react-spinners"
+import $api from "./http/api"
 
 const App = () => {
 
@@ -18,7 +18,7 @@ const App = () => {
       dispatch(setLoading(true));
       try {
         if (localStorage.getItem("accessToken")) {
-          const { data } = await $axios.get("/auth/refresh");
+          const { data } = await $api.get("/auth/refresh");
           localStorage.setItem("accessToken", data.accessToken);
           dispatch(setAuth(true));
         } else {
