@@ -28,7 +28,7 @@ const Login = () => {
 
             localStorage.setItem("data", JSON.stringify(data.user))
 
-            navigate("/dashboard/home")
+            navigate("/home")
 
             window.location.reload()
         } catch (error) {

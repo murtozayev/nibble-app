@@ -11,7 +11,7 @@ const Auth = () => {
 
     useEffect(() => {
         if (localStorage.getItem("accessToken")) {
-            navigate("/dashboard/home")
+            navigate("/home")
         }
     }, [navigate])
 
