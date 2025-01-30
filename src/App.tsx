@@ -18,7 +18,7 @@ const App = () => {
       dispatch(setLoading(true));
       try {
         if (localStorage.getItem("accessToken")) {
-          const { data } = await $api.get("/auth/refresh");
+          const { data } = await $api.get("/auth/refresh", { withCredentials: true });
           localStorage.setItem("accessToken", data.accessToken);
           dispatch(setAuth(true));
         } else {
