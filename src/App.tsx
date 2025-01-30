@@ -6,23 +6,8 @@ import Dashboard from "./pages/Dashboard"
 import { useEffect } from "react"
 import $axios from "./http/axios"
 import { PropagateLoader } from "react-spinners"
-import io from "socket.io-client"
 
 const App = () => {
-
-  // const socket = io("http://localhost:8090")
-
-  // useEffect(() => {
-  //   socket.on("connect", () => {
-  //     console.log("Client connected");
-  //   });
-
-  //   return () => {
-  //     socket.off("connect");
-  //     socket.off("disconnect");
-  //     console.log("Client disconnected");
-  //   };
-  // }, []);
 
   const { isAuth, loading } = useSelector((state: RootType) => state.nibble)
   const navigate = useNavigate()
