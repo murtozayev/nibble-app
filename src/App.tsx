@@ -18,7 +18,7 @@ const App = () => {
       dispatch(setLoading(true));
       try {
         if (localStorage.getItem("accessToken")) {
-          const { data } = await $axios.get("/auth/refresh", { withCredentials: true });
+          const { data } = await $axios.get("/auth/refresh", { headers: { "Content-Type": "application/json" } });
           localStorage.setItem("accessToken", data.accessToken);
           dispatch(setAuth(true));
         } else {

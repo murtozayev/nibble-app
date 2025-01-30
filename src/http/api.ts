@@ -1,5 +1,5 @@
 import axios from "axios";
-import  { API_URL } from "./axios";
+import $axios, { API_URL } from "./axios";
 
 const $api = axios.create({
     withCredentials: true,
@@ -24,7 +24,7 @@ $api.interceptors.response.use(
             originalRequest._isRetry = true;
 
             try {
-                const { data } = await $api.get("/auth/refresh", { withCredentials: true });
+                const { data } = await $axios.get("/auth/refresh", { headers: { "Content-Type": "application/json" } });
 
                 localStorage.setItem("accessToken", data.accessToken);
 
